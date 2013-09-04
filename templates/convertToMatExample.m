@@ -24,10 +24,8 @@ function [bagData] = convertToMatExample(filePath, fileName)
 
     % Rotation
     accessor = @(msg) msg.transform;
-    converter = @ros.transform2yaw;
-    bagData.example.yaw = ros.msgs2mat(msgs, accessor, converter);
-
-    clear topic msgs accessor converter;
+    converter = @ros.transform2yawpitchroll;
+    bagData.example.yawpitchroll = ros.msgs2mat(msgs, accessor, converter);
 
     %% Shift start time to zero
     startTime = bagData.example.time(1);
