@@ -27,7 +27,7 @@ function [bagData] = convertToMatExample(filePath, fileName)
     converter = @ros.transform2yawpitchroll;
     bagData.example.yawpitchroll = ros.msgs2mat(msgs, accessor, converter);
 
-    %% Shift start time to zero
+    % Shift start time to zero
     startTime = bagData.example.time(1);
     bagData.example.time = bagData.example.time - startTime;
 
